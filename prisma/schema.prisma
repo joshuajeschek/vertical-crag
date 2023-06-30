@@ -1,0 +1,18 @@
+generator db {
+  provider             = "prisma-client-py"
+  interface            = "sync"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Route {
+  @@map("route")
+  id         String @id
+  name       String
+  difficulty String
+  url        String
+}
